@@ -1,0 +1,45 @@
+@baseUrl = http://localhost:5000/api
+@token = PASTE_YOUR_TOKEN_HERE
+
+### Register Admin
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Admin User",
+  "email": "admin@test.com",
+  "password": "password123",
+  "role": "admin"
+}
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@test.com",
+  "password": "password123"
+}
+
+### Get Me
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{token}}
+
+### Create Project
+POST {{baseUrl}}/projects
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Website Redesign",
+  "description": "Complete overhaul of company website",
+  "deadline": "2026-12-31"
+}
+
+### Get All Tasks
+GET {{baseUrl}}/tasks
+Authorization: Bearer {{token}}
+
+### Dashboard Stats
+GET {{baseUrl}}/dashboard
+Authorization: Bearer {{token}}
